@@ -18,8 +18,14 @@ java MedicationSchedule agenda.log report 2026-10-09 > result.json
 
 ## Optional report archive
 
-Use the [shared operations archive client](https://github.com/brunnojob/vercel-home-telemetry-api/tree/main/cloud) to queue `result.json` under project `java-medication-schedule`. The client uses `BRUNNODEV_ACCESS_TOKEN` and retains unacknowledged reports locally.
+Use the [native C operations archive client](https://github.com/brunnojob/vercel-home-telemetry-api/tree/main/clients/c) to queue `result.json` under project `java-medication-schedule`. The client uses `BRUNNODEV_ACCESS_TOKEN` and retains unacknowledged reports locally.
 
 ## License
 
 Original source and documentation are MIT licensed; see [LICENSE](LICENSE). Third-party dependencies and media retain their respective terms. Maintained by [Brunno Dev](https://brunnodev.store).
+
+## Implementation update
+
+Persisted dose records are validated against the configured schedule. A record cannot precede its scheduled instant or refer to a dose outside the configured times. The tool records user-supplied schedules and does not calculate prescriptions.
+
+Contribution trailer: `Co-authored-by: nyctophile <33561761+ineedfoundmyway@users.noreply.github.com>`.

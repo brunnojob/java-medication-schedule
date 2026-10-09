@@ -24,6 +24,10 @@ public final class MedicationSchedule {
       if (f.length != 3 || !Set.of("taken", "skipped").contains(f[1]))
         throw new IllegalArgumentException("invalid dose event");
       Dose dose = new Dose(Instant.parse(f[0]), f[1], Instant.parse(f[2]));
+      if (dose.recorded().isBefore(dose.scheduled()) ||
+          !scheduled(new Plan(zone, times, Map.of()), dose.scheduled().atZone(zone).toLocalDate())
+              .contains(dose.scheduled()))
+        throw new IllegalStateException("dose event is outside the plan");
       Dose prior = records.putIfAbsent(dose.scheduled(), dose);
       if (prior != null && !prior.equals(dose))
         throw new IllegalStateException("conflicting dose event");
