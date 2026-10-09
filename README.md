@@ -1,28 +1,32 @@
 # Medication Schedule
 
-Agenda de horários informados pelo usuário, com fuso horário, tratamento de mudanças de horário e histórico de registros.
+A schedule of user-supplied times, with time zones, clock-change handling, and a record history.
 
-## Executar
+## Run
 
-Requisitos: Java 17.
+Requirements: Java 17.
 
 ```sh
 javac MedicationSchedule.java
 java MedicationSchedule agenda.log init America/Sao_Paulo 08:00,20:00
-java MedicationSchedule agenda.log report 2026-10-09 > resultado.json
+java MedicationSchedule agenda.log report 2026-10-09 > result.json
 ```
 
-## Funcionamento
+## Behavior
 
-Comando `record instante taken|skipped` registra um horário existente. Eventos futuros e decisões conflitantes são recusados. Horários inexistentes em mudanças de fuso são omitidos; horários duplicados usam a primeira ocorrência. O programa não recomenda doses nem conduta para atraso.
+`record instant taken|skipped` records an existing scheduled time. Future events and conflicting decisions are rejected. Nonexistent times during clock changes are omitted; duplicated times use the first occurrence. The program does not recommend doses or actions for missed times.
 
-## Persistência de resultados
+## Result synchronization
 
-O arquivo de operações está em [vercel-home-telemetry-api.vercel.app](https://vercel-home-telemetry-api.vercel.app/laboratory.html?project=java-medication-schedule). As migrações Supabase estão no [repositório da API](https://github.com/brunnojob/vercel-home-telemetry-api/tree/main/supabase/migrations).
+The [operations archive](https://vercel-home-telemetry-api.vercel.app/laboratory.html?project=java-medication-schedule) stores execution results. Supabase migrations are in the [API repository](https://github.com/brunnojob/vercel-home-telemetry-api/tree/main/supabase/migrations).
 
 ```sh
-python cloud/sync.py enqueue resultado.json --project java-medication-schedule
+python cloud/sync.py enqueue result.json --project java-medication-schedule
 python cloud/sync.py sync
 ```
 
-Defina `BRUNNODEV_ACCESS_TOKEN` com sua sessão. A fila SQLite conserva os relatórios até confirmação do servidor; o mesmo conteúdo não gera registros duplicados. Tokens não são gravados no código.
+Set `BRUNNODEV_ACCESS_TOKEN` to your session token. The SQLite outbox retains reports until the server confirms persistence; identical content does not create duplicate records. Tokens are not stored in source code. To run the synchronization tests:
+
+```sh
+python -m unittest discover -s cloud
+```
