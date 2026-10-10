@@ -1,11 +1,12 @@
 {
   "schema": 1,
   "repository": "brunnojob/java-medication-schedule",
-  "source_commit": "4067dd40243bd766d6971dcf3fabc7e33390fc6b",
-  "generated_at": "2026-10-10T02:36:47.904326+00:00",
-  "run_url": "https://github.com/brunnojob/java-medication-schedule/actions/runs/38017594967",
+  "source_commit": "fd7bfa2f596f4542eee073fe1424a3c486ce4e8b",
+  "generated_at": "2026-10-10T02:45:02.164715+00:00",
+  "run_url": "https://github.com/brunnojob/java-medication-schedule/actions/runs/38018086927",
   "inputs_sha256": {
-    ".proof/scenarios.json": "403a4ef4def28c8b0575c5d139b1ef6ec2b576875bc12bec99e037a479cd4457"
+    ".proof/scenarios.json": "5015c2d87eab9c922e98c845e5ba0a015750796f7901f6f3c07ec6598be0aff3",
+    ".proof/demo.py": "0322897f680ffe67d62597330640e7c14235872ab6b04b16ea72bbf4e4c6eb71"
   },
   "cases": [
     {
@@ -22,7 +23,7 @@
       "exit": 0,
       "expected_exit": 0,
       "passed": true,
-      "seconds": 3.965,
+      "seconds": 1.256,
       "output": "",
       "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
@@ -40,9 +41,23 @@
       "exit": 0,
       "expected_exit": 0,
       "passed": true,
-      "seconds": 2.16,
-      "output": "test_persistent_workflow (test_workflow.WorkflowTests.test_persistent_workflow) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 1.753s\n\nOK\n",
-      "output_sha256": "63bb4b6360d7b57a53826d03a63bcf1bdbc52cad9410fccd28bed3624c46a82b"
+      "seconds": 1.311,
+      "output": "test_persistent_workflow (test_workflow.WorkflowTests.test_persistent_workflow) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 1.156s\n\nOK\n",
+      "output_sha256": "bee33af946b987afbcc5ca4f487c353d76c79a091d45598a7d3a178ce5f5aef0"
+    },
+    {
+      "display": true,
+      "name": "Resolve a persisted schedule across a daylight-saving gap",
+      "argv": [
+        "python",
+        ".proof/demo.py"
+      ],
+      "exit": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "seconds": 0.352,
+      "output": "{\"nonexistent_dst_time\": {\"date\": \"2026-03-08\", \"doses\": [], \"zone\": \"America/New_York\"}, \"regular_day\": {\"date\": \"2026-03-09\", \"doses\": [{\"scheduled\": \"2026-03-09T06:30:00Z\", \"status\": \"unrecorded\"}], \"zone\": \"America/New_York\"}}\n",
+      "output_sha256": "902a312ddc6e0492f81c2d24739ed30efc501133702f84ac435db27cd53557ac"
     }
   ],
   "passed": true

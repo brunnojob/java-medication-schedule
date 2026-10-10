@@ -4,6 +4,9 @@ $ bash -e -o pipefail -c python -m unittest discover -v -s tests
 test_persistent_workflow (test_workflow.WorkflowTests.test_persistent_workflow) ... ok
 
 ----------------------------------------------------------------------
-Ran 1 test in 1.753s
+Ran 1 test in 1.156s
 
 OK
+
+$ python .proof/demo.py
+{"nonexistent_dst_time": {"date": "2026-03-08", "doses": [], "zone": "America/New_York"}, "regular_day": {"date": "2026-03-09", "doses": [{"scheduled": "2026-03-09T06:30:00Z", "status": "unrecorded"}], "zone": "America/New_York"}}
