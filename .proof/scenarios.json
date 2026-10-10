@@ -1,7 +1,8 @@
 {
   "repository": "brunnojob/java-medication-schedule",
   "inputs": [
-    ".proof/scenarios.json"
+    ".proof/scenarios.json",
+    ".proof/demo.py"
   ],
   "cases": [
     {
@@ -29,6 +30,15 @@
       ],
       "timeout": 900,
       "display": true
+    },
+    {
+      "name": "Resolve a persisted schedule across a daylight-saving gap",
+      "argv": [
+        "python",
+        ".proof/demo.py"
+      ],
+      "contains": [],
+      "timeout": 120
     }
   ]
 }

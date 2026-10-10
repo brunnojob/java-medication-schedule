@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "repository": "brunnojob/java-medication-schedule",
+  "source_commit": "4067dd40243bd766d6971dcf3fabc7e33390fc6b",
+  "generated_at": "2026-10-10T02:36:47.904326+00:00",
+  "run_url": "https://github.com/brunnojob/java-medication-schedule/actions/runs/38017594967",
+  "inputs_sha256": {
+    ".proof/scenarios.json": "403a4ef4def28c8b0575c5d139b1ef6ec2b576875bc12bec99e037a479cd4457"
+  },
+  "cases": [
+    {
+      "display": false,
+      "name": "javac -Xlint:all -Werror MedicationSchedule.java",
+      "argv": [
+        "bash",
+        "-e",
+        "-o",
+        "pipefail",
+        "-c",
+        "javac -Xlint:all -Werror MedicationSchedule.java"
+      ],
+      "exit": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "seconds": 3.965,
+      "output": "",
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "display": true,
+      "name": "python -m unittest discover -v -s tests",
+      "argv": [
+        "bash",
+        "-e",
+        "-o",
+        "pipefail",
+        "-c",
+        "python -m unittest discover -v -s tests"
+      ],
+      "exit": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "seconds": 2.16,
+      "output": "test_persistent_workflow (test_workflow.WorkflowTests.test_persistent_workflow) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 1.753s\n\nOK\n",
+      "output_sha256": "63bb4b6360d7b57a53826d03a63bcf1bdbc52cad9410fccd28bed3624c46a82b"
+    }
+  ],
+  "passed": true
+}
