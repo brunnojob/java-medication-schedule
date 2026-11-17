@@ -1,4 +1,4 @@
 date=2026-11-17
-seq=28
-ts=1794931026
-scope=persistence
+seq=29
+ts=1794931032
+scope=alert-queue
