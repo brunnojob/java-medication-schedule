@@ -1,4 +1,4 @@
 date=2026-11-23
-seq=41
-ts=1795456903
-scope=persistence
+seq=42
+ts=1795456922
+scope=dosage-window
