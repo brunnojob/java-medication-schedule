@@ -1,4 +1,4 @@
 date=2026-11-23
-seq=42
-ts=1795456922
-scope=dosage-window
+seq=43
+ts=1795456942
+scope=alert-queue
